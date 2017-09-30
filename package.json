@@ -1,0 +1,28 @@
+{
+  "name": "srv-project",
+  "version": "1.0.0",
+  "description": "first server project",
+  "main": "index.js",
+  "scripts": {
+    "test": "yo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loyher343/personal-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loyher343/personal-project/issues"
+  },
+  "homepage": "https://github.com/loyher343/personal-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "massive": "^4.3.0",
+    "passport": "^0.4.0",
+    "passport-auth0": "^0.6.0"
+  }
+}
