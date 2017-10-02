@@ -1,3 +1,3 @@
-angular.modules('comicApp').controller('searchCtrl', function($http) {
+angular.module('comicApp').controller('searchCtrl', function($http) {
 
 })
