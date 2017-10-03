@@ -1,4 +1,5 @@
-angular.module('comicApp', ['ui.router']).config(($urlRouterProvider, $stateProvider) => {
+angular.module('comicApp', ['ui.router'])
+.config( function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
