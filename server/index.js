@@ -6,12 +6,6 @@ const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
-<<<<<<< HEAD
-=======
-const { secret } = require('../config').session;
-const { dbUser, database } = require('../config').db;
-const { domain, clientId, clientSecret } = requrie('../config').auth0;
->>>>>>> 5cf2cf89bae93f54127d58dee31cb8afbda3e701
 
 const port = 3000;
 const kyu ="```人◕‿‿◕人```"
@@ -21,48 +15,18 @@ const connectionString = `postgres://${dbUser}@localhost${database}`;
 
 const app = express();
 
-<<<<<<< HEAD
-// our database connection information
-const connectionString = `postgres://loy@localhost/loy`;
-
-
-const { secret } = require('../config').session;
-const { dbUser, database } = require('../config').db;
-const { domain, clientID, clientSecret } = require('../config').auth0;
-
-
-
-
-
-
-// required middlewares
-=======
->>>>>>> 5cf2cf89bae93f54127d58dee31cb8afbda3e701
 app.use(json());
 app.use(cors());
 app.use(express.static(`${__dirname}/../public`));
 
-<<<<<<< HEAD
-// connecting to our DB with massive
-massive(connectionString).then(db => app.set('db', db));
-
-// setting up express sessions
-// secret: config.session.secret;
-app.use(session({
-=======
 massive(connectionString).then(db => app.set('db', db));
 
 app.user(session({
->>>>>>> 5cf2cf89bae93f54127d58dee31cb8afbda3e701
     secret,
     resave: true,
     saveUninitialized: true
 }));
 
-<<<<<<< HEAD
-// setting up passport
-=======
->>>>>>> 5cf2cf89bae93f54127d58dee31cb8afbda3e701
 app.use(passport.initialize());
 app.use(passport.session());
 
