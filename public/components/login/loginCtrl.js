@@ -1,3 +1,3 @@
-angular.module('comicApp').controller('loginCtrl', function($http) {
+angular.module('comicApp').controller('loginCtrl', function($scope) {
     
 })

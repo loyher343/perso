@@ -1,3 +1,3 @@
-angular.module('comicApp').controller('collectionCtrl', function($http) {
+angular.module('comicApp').controller('collectionCtrl', function($scope) {
     
 })

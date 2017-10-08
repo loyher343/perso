@@ -1,6 +1,9 @@
 angular.module('comicApp', ['ui.router'])
-.config( function ($stateProvider, $urlRouterProvider) {
-
+.config( function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'https://api-comic-vine.herokuapp.com/**'
+      ]);
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
