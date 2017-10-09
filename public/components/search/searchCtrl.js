@@ -4,14 +4,27 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) 
     
 
 
-    $scope.submit = function(user) {
-        //console.log(user)
-        searchSrv.submit(user)
+    $scope.submit = function(searchBook) {
+        console.log(searchBook)
+        searchSrv.submit(searchBook)
             .then(function(data){
-                //console.log('Y0',data)
-                $scope.comicbook = data.data.results;
+                const issueArr = []
+                console.log('Y0',data)
+                console.log(data.data)
+                const book = data.data.results
+                
+                for(var i = 0; i< book.length; i++){
+                    //console.log(book[i].resource_type)
+                    const issue=book[i];
+                    if(issue.resource_type==='issue'){
+                        issueArr.push(book[i])
+                    }
+                }
+                console.log(issueArr)
+                
+                $scope.comicbook = issueArr;
             })
     }
     
-    })
+})
     

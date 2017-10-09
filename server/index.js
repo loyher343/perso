@@ -4,6 +4,7 @@ const massive = require('massive');
 const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
+const LocalStrategy = require('passport-local')
 const Auth0Strategy = require('passport-auth0');
 
 
@@ -15,7 +16,7 @@ const connectionString = `postgres://${dbUser}@localhost${database}`;
 
 const app = express();
 
-app.use(json());
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(`${__dirname}/../public`));
 
@@ -32,6 +33,20 @@ app.use(passport.session());
 
 // using passport to access auth0
 // { domain: config.auth0.domain ... etc}
+
+passport.use('local', new LocalStrategy(
+    (username , password, done) => {
+        db.user.findOne({ username: username }, (err, user) => {
+            if (err) { return done(err); }
+            if (!user) { return done(null,false); }
+            if (user.password != password) { return done(null, false); }
+            return done(null, user);
+        })
+    }
+))
+
+
+
 passport.use(new Auth0Strategy({
     domain,
     clientID,
@@ -81,6 +96,7 @@ app.get('/api/test', (req, res, next) => {
 // auth endpoints
 
 // initial endpoint to fire off login
+
 app.get('/auth', passport.authenticate('auth0'));
 
 // redirect to home and use the resolve to catch the user
@@ -103,11 +119,6 @@ app.get('/auth/logout', (req, res) => {
 });
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5cf2cf89bae93f54127d58dee31cb8afbda3e701
 app.listen(() => {
     console.log(`${kyu}`)
 })
