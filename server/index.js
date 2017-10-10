@@ -7,12 +7,15 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const Auth0Strategy = require('passport-auth0');
 
+const { secret } = require('../config').session;
+const { dbUser, database } = require('../config').db;
+const { domain, clientID, clientSecret } = require('../config').auth0;
 
 const port = 3000;
 const kyu ="```人◕‿‿◕人```"
 
                                 //change this
-const connectionString = `postgres://${dbUser}@localhost${database}`;
+const connectionString = `postgres://${dbUser}@localhost/${database}`;
 
 const app = express();
 
@@ -22,7 +25,7 @@ app.use(express.static(`${__dirname}/../public`));
 
 massive(connectionString).then(db => app.set('db', db));
 
-app.user(session({
+app.use(session({
     secret,
     resave: true,
     saveUninitialized: true
@@ -94,7 +97,15 @@ app.get('/api/test', (req, res, next) => {
 
 
 // auth endpoints
-
+app.put('/api/users', (req,res,next) => {
+    const db = req.app.get('db');
+    console.log(req.session.passport.user.authid);
+    console.log(req.body)
+    db.updateUser([req.session.passport.user.authid, req.body.first, req.body.last, req.body.email]).then((user)=>{
+      console.log(req.session);
+      res.json(user);
+    }).catch(error => console.log('ERROR:', error))
+  })
 // initial endpoint to fire off login
 
 app.get('/auth', passport.authenticate('auth0'));
@@ -119,6 +130,6 @@ app.get('/auth/logout', (req, res) => {
 });
 
 
-app.listen(() => {
+app.listen(port,() => {
     console.log(`${kyu}`)
 })

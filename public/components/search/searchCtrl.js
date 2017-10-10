@@ -1,3 +1,4 @@
+
 angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) {
     $scope.test = 'Tis better to vile than vile esteem'
    
