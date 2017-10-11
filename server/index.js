@@ -91,7 +91,7 @@ passport.use(new Auth0Strategy({
 
  // pull user from session for manipulation
  passport.deserializeUser((user, done) => {
-     console.log(user);
+     
      done(null, user);
  });
 
@@ -102,6 +102,40 @@ app.get('/api/test', (req, res, next) => {
         res.json(response);
     });
 });
+
+
+
+
+
+
+
+app.post('/api/comicbooks', (req, res, next) => {
+    console.log('Issue #',req.body.issue_number)
+    console.log('img',req.body.image.medium_url)
+    console.log("***********************" ,req.user)
+    const descr = req.body.description
+    const nome =req.body.volume.name
+    req.app
+    .get('db')
+    .postComic([
+        req.body.issue_number,
+        req.body.description,
+        req.body.volume.name,
+        req.body.image.medium_url,
+        req.body.id,
+        req.user.authid,
+    ])
+});
+
+
+// app.post('/addMeal', (req, res) => {
+//     console.log(req.body)
+//     req.app
+//       .get('db')
+//       .upload_pic(req.body)
+//   });
+
+
 
 app.get('/api/test1', (req,res) => {
     console.log(req.body)
@@ -115,10 +149,10 @@ app.get('/api/test1', (req,res) => {
   })
   })
 
-  app.get('/auth/session', (req,res,next) => {
-      console.log(req.user)
-      res.send(req.session)
-  })
+app.get('/auth/session', (req,res,next) => {
+    console.log(req.user)
+    res.send(req.session)
+})
 
 // auth endpoints
 app.put('/api/users', (req,res,next) => {
@@ -144,7 +178,7 @@ app.get('/auth/callback',
 // else send user
 app.get('/auth/me', (req, res) => {
     if (!req.user) return res.status(401).json({err: 'User Not Authenticated'});
-    console.log("++++++++", req.user)
+    //console.log("++++++++", req.user)
     res.status(200).json(req.user);
 });
 

@@ -15,5 +15,12 @@ angular.module('comicApp').service('searchSrv', function($http){
             return response
         })
     }
+
+    this.store = (book) => {
+        console.log(typeof(book))
+        $http.post("/api/comicbooks", book)
+
+
+    }
     
 })

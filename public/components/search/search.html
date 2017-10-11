@@ -21,9 +21,16 @@
 
 
 <button ui-sref="collection">Collection</button>
+
 <div ng-repeat="book in comicbook">
-<div>Issue #{{book.issue_number}}</div>
-<a ng-click="store(book)"><img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}"></a></div>
+    <div>
+        Issue #{{book.issue_number}}
+    </div>
+
+    <a ng-click="store(book)">
+        <img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}">
+    </a>
+</div>
 
 <div>{{ test }}</div>
 

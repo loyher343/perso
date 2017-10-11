@@ -26,8 +26,13 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) 
                 $scope.comicbook = issueArr;
             })
     }
-    $scope.store = (book) => {
+    $scope.store = (book) => { 
         console.log(book)
+        searchSrv.store(book)
+
+
     }
+        
+    
 })
     
