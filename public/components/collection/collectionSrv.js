@@ -6,4 +6,6 @@ angular.module('comicApp').service('collectionSrv', function($http) {
         return res
         })
     }
+
+    
 })
