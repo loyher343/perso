@@ -26,6 +26,8 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) 
                 $scope.comicbook = issueArr;
             })
     }
-    
+    $scope.store = (book) => {
+        HTMLTableColElement.log(book)
+    }
 })
     

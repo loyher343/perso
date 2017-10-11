@@ -10,7 +10,12 @@ angular.module('comicApp', ['ui.router'])
         .state('login', {
             url: '/',
             templateUrl: './components/login/login.html',
-            controller: 'loginCtrl' 
+            controller: 'loginCtrl',
+            resolve: {
+                user: loginSrv=> loginSrv.getUser()
+                    .then(response => response.data)
+                    .catch(err => err)
+            } 
         })
         .state('search', {
             url: '/search',
@@ -21,6 +26,7 @@ angular.module('comicApp', ['ui.router'])
             url: '/collection',
             templateUrl: './components/collection/collection.html',
             controller: 'collectionCtrl'
+            
         })
         
 })
