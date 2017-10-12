@@ -15,9 +15,20 @@ angular.module('comicApp').controller('collectionCtrl', function($scope, collect
         })
     }
 
+    collectionSrv.getCollection().then(function(collection) {
+        console.log(collection.data)
+       $scope.comicbook = collection.data
+    })
+    
+
     var promise = collectionSrv.authMe();
     promise.then(function(data){
-        console.log(data)
+        console.log('user',data)
         $scope.user=data
     })
+
+    $scope.removeBook = (book) => {
+        collectionSrv.deleteBook(book)
+    }    
+        
 })

@@ -125,9 +125,26 @@ app.post('/api/comicbooks', (req, res, next) => {
         req.body.id,
         req.user.authid,
     ])
-});
+}); 
 
+app.get('/api/comicbooks/:authid', (req, res, next) => {
+    console.log('getting')
+    console.log('using',req.params)
+    req.app
+    .get('db')
+    .getBook([req.session.passport.user.authid]).then( bookResult => res.status(200).send(bookResult))
+    .catch( () => res.status(500).send() )
+    console.log('done')
+})
 
+app.delete('/api/comicbooks/:comicid', (req, res, next) => {
+    console.log('start delete')
+    console.log('delete', req.user.authid)
+    req.app
+    .get('db')
+    .removeBook([req.user.authid, req.params.comicid]).then( delResult => res.status(200).send(delResult))
+    .catch( () => res.status(500).send() )
+})
 // app.post('/addMeal', (req, res) => {
 //     console.log(req.body)
 //     req.app

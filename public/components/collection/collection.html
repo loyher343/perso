@@ -3,3 +3,17 @@
 <div>{{user.data}}</div>
 <button ng-click="sessiontest()">you</button>
 <button ng-click="logout()">logout</button>
+
+
+<section>
+    <div ng-repeat="book in comicbook">
+       <div>{{ book.name }}</div>
+       <div>   
+            <a ng-click="removeBook(book)">
+                <img ng-src="{{ book.img_med }}" alt="">
+            </a>
+        </div>
+    </div>
+</section>
+
+{{test}}

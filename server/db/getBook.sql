@@ -1,0 +1,1 @@
+SELECT * FROM books where authid = $1

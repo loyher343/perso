@@ -1,0 +1,1 @@
+DELETE FROM books WHERE authid = $1 AND book_id = $2  
