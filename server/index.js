@@ -153,7 +153,6 @@ app.delete('/api/comicbooks/:comicid', (req, res, next) => {
 //   });
 
 
-
 app.get('/api/test1', (req,res) => {
     console.log(req.body)
     console.log('endpoint')
