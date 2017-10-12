@@ -142,8 +142,12 @@ app.delete('/api/comicbooks/:comicid', (req, res, next) => {
     console.log('delete', req.user.authid)
     req.app
     .get('db')
-    .removeBook([req.user.authid, req.params.comicid]).then( delResult => res.status(200).send(delResult))
+    .removeBook([req.user.authid, req.params.comicid]).then( delResult => {
+        res.status(200).send(delResult)
+        console.log(delResult)
+    })
     .catch( () => res.status(500).send() )
+    
 })
 // app.post('/addMeal', (req, res) => {
 //     console.log(req.body)
