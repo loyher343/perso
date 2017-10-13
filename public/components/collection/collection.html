@@ -1,19 +1,32 @@
 <div>Collection</div>
 <button ui-sref="search">Search</button>
-<div>{{user.data}}</div>
+<div>user: {{ user.data.nickname }}</div>
 <button ng-click="sessiontest()">you</button>
 <button ng-click="logout()">logout</button>
 
+<div>
+    <form name="form">
+        <img style="width: 300px;" ngf-thumbnail="image">
+        <button name="image" ngf-select ng-model="image">Upload image</button>
+        <button ng-click="submit(image)">Submit</button>
+    </form>
+        <!--
+            This is where
+                your image upload buttons
+                    will go 
+        -->
+</div>
+
 
 <section>
-    <div ng-repeat="book in comicbook">
+    <div dir-paginate="book in comicbook | itemsPerPage: 7" >
        <div>{{ book.name }}</div>
-       <div>   
+       <div>
             <a ng-click="removeBook(book)">
                 <img ng-src="{{ book.img_med }}" alt="">
             </a>
         </div>
     </div>
 </section>
-
+<dir-pagination-controls></dir-pagination-controls>
 {{test}}

@@ -14,7 +14,7 @@ angular.module('comicApp').controller('collectionCtrl', function($scope, collect
             return res
         })
     }
-
+   
     collectionSrv.getCollection().then(function(collection) {
         console.log(collection.data)
        $scope.comicbook = collection.data
@@ -27,8 +27,14 @@ angular.module('comicApp').controller('collectionCtrl', function($scope, collect
         $scope.user=data
     })
 
+
     $scope.removeBook = (book) => {
         collectionSrv.deleteBook(book)
-    }    
+    }
+    
+    
+    $scope.submit = (file) => {
+        collectionSrv.uploadImage(file)
+    }
         
 })

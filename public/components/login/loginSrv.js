@@ -1,5 +1,10 @@
 angular.module('comicApp').service('loginSrv',function($http){
-    this.getUser = () => $http.get('/auth/me');
+    this.getUser = () => {
+       return $http.get('/auth/me').then(res => {
+            console.log(res)
+            return res
+        });
+    }
     
 
     this.test1 = () => {

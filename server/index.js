@@ -149,6 +149,13 @@ app.delete('/api/comicbooks/:comicid', (req, res, next) => {
     .catch( () => res.status(500).send() )
     
 })
+
+app.post('/api/images',(req, res) => {
+    console.log(req.body)
+    req.app
+      .get('db')
+      .upload_book(req.body)
+  });
 // app.post('/addMeal', (req, res) => {
 //     console.log(req.body)
 //     req.app
@@ -203,11 +210,13 @@ app.get('/auth/me', (req, res) => {
 });
 
 // remove user from session
-app.get('/auth/logout', (req, res) => {
+app.get('/auth/logout', (req, res, next) => {
     console.log('logging out');
     console.log(req.user)
-    req.logout();
+    //res.redirect('/');
+    req.logout()
     res.redirect('/');
+    next();
 });
 
 process.on('unhandledRejection', (reason, p) => {

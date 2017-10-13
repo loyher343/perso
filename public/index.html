@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+   
+    
+    <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCN1gsaU1xhrzq13dio-zBu-36CSbcTBmk",
+        authDomain: "comic-9e604.firebaseapp.com",
+        databaseURL: "https://comic-9e604.firebaseio.com",
+        projectId: "comic-9e604",
+        storageBucket: "comic-9e604.appspot.com",
+        messagingSenderId: "608650202154"
+      };
+      firebase.initializeApp(config);
+    </script>
 </head>
 <body>
     
     <ui-view>
 
     </ui-view>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
@@ -21,4 +37,9 @@
 <script src="./components/search/searchCtrl.js"></script>
 <script src="./components/search/searchSrv.js"></script>
 <script src="./components/collection/collectionSrv.js"></script>
+<script src="./components/profile/profileCtrl.js"></script>
+<script src="./components/profile/profileSrv.js"></script>
+<script src="./external/dirPagination.js"></script>
+
+
 </html>

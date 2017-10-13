@@ -30,6 +30,7 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) 
         console.log(book)
         searchSrv.store(book)
 
+        
 
     }
         

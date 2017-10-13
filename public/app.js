@@ -1,4 +1,4 @@
-angular.module('comicApp', ['ui.router'])
+angular.module('comicApp', ['ui.router','angularUtils.directives.dirPagination'])
 .config( function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
         'self',
@@ -27,6 +27,11 @@ angular.module('comicApp', ['ui.router'])
             templateUrl: './components/collection/collection.html',
             controller: 'collectionCtrl'
             
+        })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: "./components/collection/login.html",
+            controller: 'profileCtrl'
         })
         
 })

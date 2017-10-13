@@ -10,19 +10,12 @@
     
     <button type="submit">Submit</button>
 </form>
-<section class="paginate">
-    <div dir-paginate="book in comicbook | itemsPerPage: booksPerPage" total-items"totalBooks" current-page="pagination.current">
-        <div>Issue #{{book.issue_number}}</div>
-        <img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}">
-    </div>
 
-    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
-</section>
 
 
 <button ui-sref="collection">Collection</button>
 
-<div ng-repeat="book in comicbook">
+<div dir-paginate="book in comicbook| itemsPerPage: 10">
     <div>
         Issue #{{book.issue_number}}
     </div>
@@ -31,6 +24,8 @@
         <img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}">
     </a>
 </div>
+
+<dir-pagination-controls></dir-pagination-controls>
 
 <div>{{ test }}</div>
 
