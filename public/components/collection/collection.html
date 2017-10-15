@@ -1,10 +1,36 @@
+<nav class="top-bar" data-topbar>
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-drop-menu>
+            <li>Title goes here</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu horizontal">
+            <li>{{ user.data.nickname }}</li>
+            <li><a ui-sref="profile">Profile</a></li>
+            <li><button class="button" ng-click="logout()">Logout</button></li>
+        </ul>
+            
+            
+
+            
+       
+    </div>
+</nav>
+
+
+
+
 <div>Collection</div>
 <button ui-sref="search">Search</button>
-<div>user: {{ user.data.nickname }}</div>
+
+<div>user: <a ui-sref="profile">{{ user.data.nickname }}</a></div>
 <button ng-click="sessiontest()">you</button>
 <button ng-click="logout()">logout</button>
 
 <div>
+        <label for="fileUpload" class="button">Updload File</label>
+        <input type="file" id="fileUpload" ng-model="uploadComic.pic"class="show-for-sr">
     <form name="form">
         <img style="width: 300px;" ngf-thumbnail="image">
         <button name="image" ngf-select ng-model="image">Upload image</button>
@@ -19,8 +45,8 @@
 
 
 <section>
-    <div dir-paginate="book in comicbook | itemsPerPage: 7" >
-       <div>{{ book.name }}</div>
+    <div dir-paginate="book in comicbook | itemsPerPage: 7 as postItems" >
+       <div>{{ book.name }}  #{{book.issue_number}}</div>
        <div>
             <a ng-click="removeBook(book)">
                 <img ng-src="{{ book.img_med }}" alt="">
@@ -28,5 +54,12 @@
         </div>
     </div>
 </section>
+
+    <div ng-if="postItems.length === 0">
+        <span>No Items Found</span>
+       
+        <button ui-sref="search">Add stuff now</button>
+    </div>
+
 <dir-pagination-controls></dir-pagination-controls>
 {{test}}

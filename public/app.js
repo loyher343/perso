@@ -1,5 +1,6 @@
 angular.module('comicApp', ['ui.router','angularUtils.directives.dirPagination'])
 .config( function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+    
     $sceDelegateProvider.resourceUrlWhitelist([
         'self',
         'https://api-comic-vine.herokuapp.com/**'
@@ -30,7 +31,7 @@ angular.module('comicApp', ['ui.router','angularUtils.directives.dirPagination']
         })
         .state('profile', {
             url: '/profile',
-            templateUrl: "./components/collection/login.html",
+            templateUrl: "./components/profile/profile.html",
             controller: 'profileCtrl'
         })
         

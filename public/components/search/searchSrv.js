@@ -21,7 +21,7 @@ angular.module('comicApp').service('searchSrv', function($http){
         $http.post("/api/comicbooks", book)
 
 
-        
+
     }
     
 })

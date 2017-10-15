@@ -1,4 +1,4 @@
-angular.module('comicApp').controller('collectionCtrl', function($scope, collectionSrv, $http) {
+angular.module('comicApp').controller('collectionCtrl', function($scope, collectionSrv, $http, $state) {
     
     $scope.test = 'Tis better to be vile than vile esteemed'
     $scope.sessiontest = () => {
@@ -11,7 +11,7 @@ angular.module('comicApp').controller('collectionCtrl', function($scope, collect
     }
     $scope.logout = () => {
         $http.get('/auth/logout').then(function(res){
-            return res
+            return $state.go('login')
         })
     }
    

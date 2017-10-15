@@ -184,12 +184,12 @@ app.get('/auth/session', (req,res,next) => {
 // auth endpoints
 app.put('/api/users', (req,res,next) => {
     const db = req.app.get('db');
-    console.log(req.session.passport.user.authid);
+    console.log(req.session.passport);
     console.log(req.body)
-    db.updateUser([req.session.passport.user.authid, req.body.first, req.body.last, req.body.email]).then((user)=>{
-      console.log(req.session);
-      res.json(user);
-    }).catch(error => console.log('ERROR:', error))
+    // db.updateUser([req.session.passport.user.authid, req.body.first, req.body.last, req.body.email]).then((user)=>{
+    //   console.log(req.session);
+    //   res.json(user);
+    // }).catch(error => console.log('ERROR:', error))
   })
 // initial endpoint to fire off login
 
@@ -215,8 +215,8 @@ app.get('/auth/logout', (req, res, next) => {
     console.log(req.user)
     //res.redirect('/');
     req.logout()
-    res.redirect('/');
-    next();
+    res.json('oks');
+    
 });
 
 process.on('unhandledRejection', (reason, p) => {
