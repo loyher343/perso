@@ -7,8 +7,9 @@
     <div class="top-bar-right">
         <ul class="menu horizontal">
             <li>{{ user.data.nickname }}</li>
+            <li><a ui-sref="search">Search</a></li>
             <li><a ui-sref="profile">Profile</a></li>
-            <li><button class="button" ng-click="logout()">Logout</button></li>
+            <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
             
             
@@ -21,21 +22,54 @@
 
 
 
-<div>Collection</div>
-<button ui-sref="search">Search</button>
+<h1>Collection</h1>
 
-<div>user: <a ui-sref="profile">{{ user.data.nickname }}</a></div>
+
+<!-- <div>user: <a ui-sref="profile">{{ user.data.nickname }}</a></div>
 <button ng-click="sessiontest()">you</button>
-<button ng-click="logout()">logout</button>
+<button ng-click="logout()">logout</button> -->
+<div class="switch">
+        <input class="switch-input" id="mySwitch" type="checkbox" name="exampleSwitch">
+        <label class="switch-paddle" ng-click="showMe()" for="mySwitch">
+          <span class="show-for-sr">Enabled</span>
+          <span class="switch-inactive" ng-click="hideMe()" aria-hidden="true"></span>
+        </label>
+</div>
 
-<div>
-        <label for="fileUpload" class="button">Updload File</label>
-        <input type="file" id="fileUpload" ng-model="uploadComic.pic"class="show-for-sr">
-    <form name="form">
-        <img style="width: 300px;" ngf-thumbnail="image">
-        <button name="image" ngf-select ng-model="image">Upload image</button>
-        <button ng-click="submit(image)">Submit</button>
-    </form>
+<!-- <div class="switch">
+    <input class="switch-input" type="checkbox" id="mySwitch1" ng-model="ShowPassport" ng-change="ShowHide()" />
+        <label class="switch-paddle" for="mySitch1">
+        </label>
+        <hr />
+        <div ng-show="IsVisible">
+            Passport Number:
+            <input type="text" id="txtPassportNumber" />
+        </div>
+    </div> -->
+
+<div ng-show="show">
+ 
+    <form>
+            <div class="grid-container">
+              <div class="grid-x grid-padding-x">
+                <div class="medium-6 cell">
+                  <label>Name
+                    <input type="text" ng-model="uploadComic.name" placeholder="The Incredible Hulk">
+                  </label>
+                </div>
+                <div class="medium-6 cell">
+                  <label>Issue Number
+                    <input type="number" ng-model="uploadComic.issue_number" placeholder="181">
+                  </label>
+                </div>
+                <div class="large-12 cell">
+                        <label>Description
+                          <textarea ng-model="uploadComic.description" type="text"></textarea>
+                        </label>
+                      </div>
+              </div>
+            </div>
+          </form>
         <!--
             This is where
                 your image upload buttons
@@ -58,8 +92,9 @@
     <div ng-if="postItems.length === 0">
         <span>No Items Found</span>
        
-        <button ui-sref="search">Add stuff now</button>
+        <button class="button" ui-sref="search">Add stuff now</button>
     </div>
 
 <dir-pagination-controls></dir-pagination-controls>
 {{test}}
+

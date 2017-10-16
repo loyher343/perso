@@ -1,11 +1,15 @@
  
-angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) {
+angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv, $http, $state ,$sce) {
     $scope.test = 'Tis better to vile than vile esteem'
    
     $scope.pageChanged = function(newPage) {
         getResultsPage(newPage);
     };
-    
+    $scope.logout = () => {
+        $http.get('/auth/logout').then(function(res){
+            return $state.go('login')
+        })
+    }
     $scope.submit = function(searchBook) {
         console.log(searchBook)
         searchSrv.submit(searchBook)
@@ -24,17 +28,29 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv) 
                 }
                 console.log(issueArr)
                 
+
+                
+
+
                 $scope.comicbook = issueArr;
+               
             })
     }
     $scope.store = (book) => { 
         console.log(book)
         searchSrv.store(book)
 
-
-
     }
-        
+
+    $scope.showMe = function(){
+        $scope.show=true;
+    }
+    $scope.hideMe = function(){
+        $scope.show=false;
+    }
+
+
+            
     
 })
     

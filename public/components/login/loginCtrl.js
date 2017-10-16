@@ -1,6 +1,6 @@
 angular.module('comicApp').controller('loginCtrl', function($scope,loginSrv,$http) {
     
-    $scope.test = 'Tis better to be vile than vile esteemed'
+    $scope.test = 'TIS BETTER TO BE VILE THAN VILE ESTEEM'
     
     $scope.test1 = () => {
         loginSrv.test1()

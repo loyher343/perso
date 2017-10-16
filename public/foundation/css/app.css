@@ -1,0 +1,25 @@
+.bang{
+    font-family: "Bangers";
+    text-shadow: -1px -1px yellow, 1px 1px orange,  2px 2px orange;
+} 
+.akew{
+    -webkit-transform: rotate(-10deg) skew(-10deg, 0);
+    -moz-transform: rotate(-10deg) skew(-10deg, 0);
+    -ms-transform: rotate(-10deg) skew(-10deg, 0);
+    -o-transform: rotate(-10deg) skew(-10deg, 0);
+    transform: rotate(-10deg) skew(-10deg, 0);
+    padding-bottom: 50px;
+    float: left;
+    width: 100%;
+    font-size: 50px;
+}
+ .panel {
+    height: 100vh;
+    background-image: radial-gradient(ellipse farthest-corner, transparent 0%, transparent 35%, #fff 30%, #fff 40%, transparent 90%), radial-gradient(ellipse farthest-corner at 0px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 8px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 0px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 40%), radial-gradient(ellipse farthest-corner at 8px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%),  linear-gradient(40deg, #bd2d10 0, #f4502f 30%, #ff6e51 50%, #f4502f 70%, #bd2d10 100%);
+    background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 100% 100%;
+}
+.top-bar{
+    background-color: #1F1F1F;
+}
+
+

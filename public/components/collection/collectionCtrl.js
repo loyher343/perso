@@ -34,7 +34,22 @@ angular.module('comicApp').controller('collectionCtrl', function($scope, collect
     
     
     $scope.submit = (file) => {
+        console.log(file)
         collectionSrv.uploadImage(file)
     }
+
+    $scope.showMe = function(){
+        $scope.show=true;
+      }
+      $scope.hideMe = function(){
+        $scope.show=false;
+      }
         
+
+    //This will hide the DIV by default.
+    $scope.IsVisible = false;
+    $scope.ShowHide = function () {
+        //If DIV is visible it will be hidden and vice versa.
+        $scope.IsVisible = $scope.ShowPassport;
+    }  
 })

@@ -1,4 +1,4 @@
-angular.module('comicApp', ['ui.router','angularUtils.directives.dirPagination'])
+angular.module('comicApp', ['ui.router','angularUtils.directives.dirPagination','ngSanitize'])
 .config( function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     
     $sceDelegateProvider.resourceUrlWhitelist([
