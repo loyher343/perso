@@ -105,12 +105,17 @@
         <tr dir-paginate="book in comicbook| itemsPerPage: 10" >
             <td>
                 <div>
+                    <!-- DESKTOP -->
                     <i ng-click="store(book)" class="fa fa-plus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
-                    <i class="fa fa-minus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
+                    <i ng-click="undo(book)" class="fa fa-minus-circle fa-3x show-for-large-only"  aria-hidden="true"></i>
                 </div> 
                 <div>
+                    <!-- MOBLIE -->
                     <button class="button expanded hide-for-large-only">
                         <i ng-click="store(book)" class="fa fa-plus-circle"></i>
+                    </button>
+                    <button class="button expanded hide-for-large-only">
+                        <i ng-click="undo(book)" class="fa fa-minus-circle"></i>
                     </button>
                 </div>
             </td>

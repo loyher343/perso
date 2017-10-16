@@ -19,9 +19,8 @@ angular.module('comicApp').service('searchSrv', function($http){
     this.store = (book) => {
         console.log(typeof(book))
         $http.post("/api/comicbooks", book)
-
-
-
     }
-    
+    this.removebook= (book) => {
+        $http.delete('/api/comicbooks/' + book.id)
+    }
 })

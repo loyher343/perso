@@ -36,6 +36,12 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv, 
                
             })
     }
+
+    $scope.undo = (book) => {
+        console.log('removing:',book.id)
+        searchSrv.removebook(book)
+    }
+
     $scope.store = (book) => { 
         console.log(book)
         searchSrv.store(book)
