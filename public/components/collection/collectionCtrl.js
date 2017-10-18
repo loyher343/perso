@@ -1,4 +1,4 @@
-angular.module('comicApp').controller('collectionCtrl', function($scope, collectionSrv, $http, $state) {
+angular.module('comicApp').controller('collectionCtrl', function($scope, collectionSrv, $http, $state, $sce) {
     
     $scope.test = 'Tis better to be vile than vile esteemed'
     $scope.sessiontest = () => {

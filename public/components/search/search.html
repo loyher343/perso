@@ -37,7 +37,11 @@
     <button type="submit">Submit</button>
 </form> -->
 
-
+<form name="form">
+    <img style="width: 300px;" ngf-thumbnail="image">
+    <button class="button" name="image" ngf-select ng-model="image">Upload image</button>
+    <button class="" ng-click="submit(image)">Submit</button>
+</form>
 
 
 <div class="switch">
@@ -59,41 +63,40 @@
         </div>
     </div> -->
 
-<div ng-show="show">
-        <label for="fileUpload" class="button">Updload File</label>
-        <input type="file" id="fileUpload" ng-model="uploadComic.pic"class="show-for-sr">
-    <form name="form">
-        <img style="width: 300px;" ngf-thumbnail="image">
-        <button name="image" ngf-select ng-model="image">Upload image</button>
-        <button class="button" ng-click="submit(uploadComic)">Submit</button>
-    </form>
-    <form>
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="medium-6 cell">
-                  <label>Name
-                    <input type="text" ng-model="uploadComic.name" placeholder="The Incredible Hulk">
-                  </label>
+    <div ng-show="show">
+            
+        <form name="form">
+            <img style="width: 300px;" ngf-thumbnail="image">
+            <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button>
+            <button class="button" ng-click="upload(uploadComic)">Submit</button>
+        </form>
+        <form>
+                <div class="grid-container">
+                  <div class="grid-x grid-padding-x">
+                    <div class="medium-6 cell">
+                      <label>Name
+                        <input type="text" ng-model="uploadComic.name" placeholder="The Incredible Hulk">
+                      </label>
+                    </div>
+                    <div class="medium-6 cell">
+                      <label>Issue Number
+                        <input type="number" ng-model="uploadComic.issue_number" placeholder="181">
+                      </label>
+                    </div>
+                    <div class="large-12 cell">
+                            <label>Description
+                              <textarea ng-model="uploadComic.description" type="text"></textarea>
+                            </label>
+                          </div>
+                  </div>
                 </div>
-                <div class="medium-6 cell">
-                  <label>Issue Number
-                    <input type="number" ng-model="uploadComic.issue_number" placeholder="181">
-                  </label>
-                </div>
-                <div class="large-12 cell">
-                        <label>Description
-                          <textarea ng-model="uploadComic.description" type="text"></textarea>
-                        </label>
-                      </div>
-              </div>
-            </div>
-          </form>
-        <!--
-            This is where
-                your image upload buttons
-                    will go 
-        -->
-</div>
+              </form>
+            <!--
+                This is where
+                    your image upload buttons
+                        will go 
+            -->
+    </div>
 
 <table class="striped hover stack table-scroll">
         <thead>
@@ -141,3 +144,12 @@
 
 <div>{{ test }}</div>
 
+
+<div class="loading happy">Loading</div>
+<script>
+    i = 0;
+    setInterval(function() {
+        i = ++i % 4;
+        $(".loading").text("Loading " + Array(i+1).join("."));
+        }, 800)
+</script>

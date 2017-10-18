@@ -1,0 +1,43 @@
+[debug] [2017-10-17T18:52:44.007Z] ----------------------------------------------------------------------
+[debug] [2017-10-17T18:52:44.009Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-10-17T18:52:44.010Z] CLI Version:   3.13.1
+[debug] [2017-10-17T18:52:44.010Z] Platform:      darwin
+[debug] [2017-10-17T18:52:44.010Z] Node Version:  v8.4.0
+[debug] [2017-10-17T18:52:44.011Z] Time:          Tue Oct 17 2017 13:52:44 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:44.011Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-17T18:52:44.022Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-17T18:52:44.022Z] > authorizing via signed-in user
+[debug] [2017-10-17T18:52:44.024Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-17T18:52:44.024Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/OVp8dsqVopvIG5SB0lA_Vcbk0LtPuYSdBF2vu3BNohs',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Oct 17 2017 13:52:44 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:44.147Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T18:52:44.157Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/comic-9e604  
+ Tue Oct 17 2017 13:52:44 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:44.473Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T18:52:44.475Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/comic-9e604/tokens  
+ Tue Oct 17 2017 13:52:44 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:44.783Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/loyhernandez/DevMountainStuff/projects/srv-project'...
+[info] 
+[debug] [2017-10-17T18:52:44.788Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/comic-9e604  
+ Tue Oct 17 2017 13:52:44 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:45.058Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T18:52:45.059Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/608650202154/clients/_:getWebAppConfig  
+ Tue Oct 17 2017 13:52:45 GMT-0500 (CDT)
+[debug] [2017-10-17T18:52:45.314Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T18:52:45.345Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:17)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+    at Server.emit (events.js:207:7)
+    at emitListeningNT (net.js:1349:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.

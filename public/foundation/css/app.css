@@ -1,6 +1,12 @@
 .bang{
     font-family: "Bangers";
     text-shadow: -1px -1px yellow, 1px 1px orange,  2px 2px orange;
+}
+.happy{
+    font-family: "Happy Monkey";
+    font-weight: 600;
+    font-size: smaller;
+
 } 
 .akew{
     -webkit-transform: rotate(-10deg) skew(-10deg, 0);
@@ -21,5 +27,77 @@
 .top-bar{
     background-color: #1F1F1F;
 }
+.wrapper {
+    padding-top: 12px;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  
+  .wrapper > div {
+    border: 2px solid rgb(0, 0, 0);
+    background-image: radial-gradient(ellipse farthest-corner, transparent 0%, transparent 35%, #fff 30%, #fff 40%, transparent 90%), radial-gradient(ellipse farthest-corner at 0px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 8px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 0px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 40%), radial-gradient(ellipse farthest-corner at 8px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%),  linear-gradient(40deg, #BD9E10 0, #F4A82F 30%, #FFAE51 50%, #F4982F 70%, rgb(179, 107, 0) 100%);
+    background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 100% 100%;
+    /* background-color: rgba(233,171,88,.5); */
+    padding: 1em;
+    
+  }.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(103px, auto);
+  }
+  
+  .three {
+    grid-column: 1;
+    grid-row: 1 / 6;
+  }
+  .four {
+    grid-column: 2;
+    grid-row: 1/4;
+  }
 
-
+.comic-start-block {
+    margin-top: 12px;
+    display: block;
+    position: absolute;
+    height: 265px;
+    width: 355px;
+    z-index: 2;
+    
+    background: white;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    -webkit-backface-visibility: hidden;
+}  
+.comic-block {
+    margin-top: 12px;
+    margin-left: 37px;
+    width: 85%;
+    height: 90.5%;
+    left: 1em;
+    -webkit-transform: skew(-15deg);
+    transform: skew(-15deg);
+    background: white;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+    z-index:2;
+    border-right: 3px solid;
+}
+.scroll{
+    overflow: scroll;
+    
+}
+.scroll::-webkit-scrollbar{
+    display: none;
+}
+.top{
+    z-index: 3
+}
+.login{
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+}
+.loading { 
+    font-size: 1.5em; 
+    font-family: Georgia; 
+    /*color: #f0f0f0;*/
+  }

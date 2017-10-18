@@ -105,11 +105,25 @@ app.get('/api/test', (req, res, next) => {
 
 
 
+app.post('/api/uploadComic', (req, res, next) => {
+    console.log(req.body)
+    req.app
+    .get('db')
+    .postComic([
+        req.body.issue_number,
+        req.body.description,
+        req.body.name,
+        req.body.image,
+        req.body.book_id,
+        req.user.authid,
+    ])
 
+});
 
 
 
 app.post('/api/comicbooks', (req, res, next) => {
+    console.log(req.body)
     console.log('Issue #',req.body.issue_number)
     console.log('img',req.body.image.medium_url)
     console.log("***********************" ,req.user)
