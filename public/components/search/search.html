@@ -1,101 +1,82 @@
 <nav class="top-bar" data-topbar>
-        <div class="top-bar-left">
-            <ul class="dropdown menu" data-drop-menu>
-                <li>Title goes here</li>
-            </ul>
-        </div>
-        <div class="top-bar-right">
-            <ul class="menu horizontal">
-                <li>{{ user.data.nickname }}</li>
-                <li><a ui-sref="collection"> Collection</a></li>
-                <li><a ui-sref="profile">Profile</a></li>
-                
-                <li><button class="warning button" ng-click="logout()">Logout</button></li>
-            </ul>
-                
-                
-    
-                
-           
-        </div>
-    </nav>
-    <h1>Search</h1>
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-drop-menu>
+            <li class="bang">Title goes here</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu horizontal">
+            <li>{{ user.data.nickname }}</li>
+            <li><a ui-sref="collection" class="happy"> Collection</a></li>
+            <li><a ui-sref="profile" class="happy">Profile</a></li>
+            <li><button class="warning button" ng-click="logout()">Logout</button></li>
+        </ul>
+    </div>
+</nav>
+<h1>Search</h1>
 
 
-
+<!-- SEARCH -->
  <div class="input-group">
-        <span class="input-group-label"></span>
-        <input class="input-group-field" ng-model="searchBook.name" type="comic">
-        <div class="input-group-button">
-          <input type="submit" class="button" ng-click="submit(searchBook)" value="Search">
-        </div>
-      </div>
-<!-- <form name="formuser" ng-submit="submit(searchBook)">
-    Enter text here
-    <input type="text" ng-model="searchBook.name" />
-   
-    <button type="submit">Submit</button>
-</form> -->
-
-<form name="form">
-    <img style="width: 300px;" ngf-thumbnail="image">
-    <button class="button" name="image" ngf-select ng-model="image">Upload image</button>
-    <button class="" ng-click="submit(image)">Submit</button>
-</form>
-
-
-<div class="switch">
-        <input class="switch-input" id="mySwitch" type="checkbox" name="exampleSwitch">
-        <label class="switch-paddle" ng-click="showMe()" for="mySwitch">
-          <span class="show-for-sr">Enabled</span>
-          <span class="switch-inactive" ng-click="hideMe()" aria-hidden="true"></span>
-        </label>
+    <span class="input-group-label"></span>
+    <input class="input-group-field" ng-model="searchBook.name" type="comic">
+    <div class="input-group-button">
+        <input type="submit" class="button" ng-click="submit(searchBook)" value="Search">
+    </div>
 </div>
 
-<!-- <div class="switch">
-    <input class="switch-input" type="checkbox" id="mySwitch1" ng-model="ShowPassport" ng-change="ShowHide()" />
-        <label class="switch-paddle" for="mySitch1">
-        </label>
-        <hr />
-        <div ng-show="IsVisible">
-            Passport Number:
-            <input type="text" id="txtPassportNumber" />
-        </div>
-    </div> -->
+<div >
+    <table>
+        <tr dir-paginate="user in users | itemsPerPage: usersPerPage" total-items="totalUsers" current-page="pagination.current">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+    <dir-pagination-controls on-page-change="pageChanged(searchBook.newPageNumber)"></dir-pagination-controls>
+</div>
 
-    <div ng-show="show">
+
+
+<!-- switch for upload -->
+<div class="switch">
+    <input class="switch-input" id="mySwitch" type="checkbox" name="exampleSwitch">
+    <label class="switch-paddle" ng-click="showMe()" for="mySwitch">
+        <span class="show-for-sr">Enabled</span>
+        <span class="switch-inactive" ng-click="hideMe()" aria-hidden="true"></span>
+    </label>
+</div>
+
+
+<!-- input for comicboo -->
+<div ng-show="show">
             
-        <form name="form">
-            <img style="width: 300px;" ngf-thumbnail="image">
-            <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button>
-            <button class="button" ng-click="upload(uploadComic)">Submit</button>
-        </form>
-        <form>
-                <div class="grid-container">
-                  <div class="grid-x grid-padding-x">
-                    <div class="medium-6 cell">
-                      <label>Name
+    <form name="form">
+        <img style="width: 300px;" ngf-thumbnail="image">
+        <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button> 
+    </form>
+    <form>
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+                <div class="medium-6 cell">
+                    <label>Name
                         <input type="text" ng-model="uploadComic.name" placeholder="The Incredible Hulk">
-                      </label>
-                    </div>
-                    <div class="medium-6 cell">
-                      <label>Issue Number
+                    </label>
+                </div>
+                <div class="medium-6 cell">
+                    <label>Issue Number
                         <input type="number" ng-model="uploadComic.issue_number" placeholder="181">
-                      </label>
-                    </div>
-                    <div class="large-12 cell">
+                    </label>
+                </div>
+                <div class="large-12 cell">
                             <label>Description
                               <textarea ng-model="uploadComic.description" type="text"></textarea>
                             </label>
                           </div>
                   </div>
                 </div>
+                <button class="button" ng-click="upload(uploadComic)">Submit</button>
               </form>
-            <!--
-                This is where
-                    your image upload buttons
-                        will go 
-            -->
+
     </div>
 
 <table class="striped hover stack table-scroll">
@@ -105,7 +86,7 @@
             <th>Name</th>
             <th>Description</th>
         </thead>
-        <tr dir-paginate="book in comicbook| itemsPerPage: 10" >
+        <tr dir-paginate="book in comicbook| itemsPerPage: booksPerPage" total-items="totalbooks" current-page="pagination.current" >
             <td>
                 <div>
                     <!-- DESKTOP -->
@@ -128,17 +109,7 @@
         </tr>
 </table>
 
-<!-- <div dir-paginate="book in comicbook| itemsPerPage: 10">
-    <div>
-        Issue #{{book.issue_number}}
-    </div>
 
-    <a ng-click="store(book)">
-        <img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}">
-    </a>
-
-    
-</div> -->
 
 <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
 

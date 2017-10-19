@@ -5,15 +5,26 @@ angular.module('comicApp').service('searchSrv', function($http){
     
   
     this.submit = (searchBook) => {
-        var url = api + 'name:' + searchBook.name + '&' + 'person_credits:' + searchBook.person_credits
-        console.log(url)
+   // var url = api + 'name:' + searchBook.name + '&' + 'person_credits:' + searchBook.person_credits
+        //console.log(url)
         return $http({
             method: 'GET',
-            url: api + searchBook.name ,
+            url: api + 'name:' + searchBook.name ,
         }).then(function successCallback(response){
             
             return response
         })
+    }
+
+    this.getResultsPage = (pageNumber) => {
+        var url = api + 'name:' + pageNumber.name 
+       return $http({
+           method: 'GET',
+           url: api + pageNumber.name + '&page=' + pageNumber.newPageNumber,
+       }).then(function successCallback(response){
+           console.log(response)
+           return response
+       })
     }
     this.upload = (book) => {
         const storageRef = firebase.storage().ref();

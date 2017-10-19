@@ -1,107 +1,73 @@
 <nav class="top-bar" data-topbar>
     <div class="top-bar-left">
         <ul class="dropdown menu" data-drop-menu>
-            <li>Title goes here</li>
+            <li class="bang">Title goes here</li>
         </ul>
     </div>
     <div class="top-bar-right">
         <ul class="menu horizontal">
             <li>{{ user.data.nickname }}</li>
-            <li><a ui-sref="search">Search</a></li>
-            <li><a ui-sref="profile">Profile</a></li>
+            <li><a ui-sref="search" class="happy">Search</a></li>
+            <li><a ui-sref="profile" class="happy">Profile</a></li>
             <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
-            
-            
-
-            
-       
     </div>
 </nav>
 
 
 
 
-<h1>Collection</h1>
+<h1 class="text-center happy">Collection</h1>
 
 
-<!-- <div>user: <a ui-sref="profile">{{ user.data.nickname }}</a></div>
-<button ng-click="sessiontest()">you</button>
-<button ng-click="logout()">logout</button> -->
-<div class="switch">
-        <input class="switch-input" id="mySwitch" type="checkbox" name="exampleSwitch">
-        <label class="switch-paddle" ng-click="showMe()" for="mySwitch">
-          <span class="show-for-sr">Enabled</span>
-          <span class="switch-inactive" ng-click="hideMe()" aria-hidden="true"></span>
-        </label>
-</div>
 
-<!-- <div class="switch">
-    <input class="switch-input" type="checkbox" id="mySwitch1" ng-model="ShowPassport" ng-change="ShowHide()" />
-        <label class="switch-paddle" for="mySitch1">
-        </label>
-        <hr />
-        <div ng-show="IsVisible">
-            Passport Number:
-            <input type="text" id="txtPassportNumber" />
-        </div>
-    </div> -->
-
-<div ng-show="show">
- 
-    <form>
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="medium-6 cell">
-                  <label>Name
-                    <input type="text" ng-model="uploadComic.name" placeholder="The Incredible Hulk">
-                  </label>
-                </div>
-                <div class="medium-6 cell">
-                  <label>Issue Number
-                    <input type="number" ng-model="uploadComic.issue_number" placeholder="181">
-                  </label>
-                </div>
-                <div class="large-12 cell">
-                        <label>Description
-                          <textarea ng-model="uploadComic.description" type="text"></textarea>
-                        </label>
-                      </div>
-              </div>
-            </div>
-          </form>
-        <!--
-            This is where
-                your image upload buttons
-                    will go 
-        -->
-</div>
-
-
+<!-- SHOW LARGE -->
 <div  dir-paginate="book in comicbook | itemsPerPage: 7 as postItems"  class="wrapper show-for-large-only">
-    
-     <div class="three">
+    <div class="three">
         <img ng-src="{{ book.img_med }}" alt="">
-      </div>
-     <div class="four">
-       <div class="comic-start-block scroll">
-         <p ng-bind-html="book.description" class="text-center happy top"></p>
-       </div>
-       <div class="comic-block"></div>
-     </div>
-     <!-- <div class="five">Five</div>
-     <div class="six">Six</div> -->
- </div>
+    </div>
+    <div class="four">
+        <div class="comic-start-block scroll">
+            <p ng-bind-html="book.description" class="text-center happy top"></p>
+        </div>
+        <div class="comic-block"></div>
+    </div>
+</div>
 
+
+<!-- SHOW SMALL -->
 <section  class="button expanded hide-for-large-only">
     <div dir-paginate="book in comicbook | itemsPerPage: 7 as postItems" >
-       <div>{{ book.name }}  #{{book.issue_number}}</div>
+       <div class="happy">{{ book.name }}  #{{book.issue_number}}</div>
        <div>
             <a ng-click="removeBook(book)">
                 <img ng-src="{{ book.img_med }}" alt="">
             </a>
         </div>
+        <section>
+            <div>
+                <p><button class="secondary button expanded" data-open="exampleModal1">Click me for a modal</button></p>
+            </div>
+        <div class="descrp">
+            
+            <p ng-bind-html="book.description"></p>
+        </div> 
+        </section>
+ <div class="reveal" id="exampleModal1" data-reveal>
+            <h1>Awesome. I Have It.</h1>
+            <p class="lead">Your couch. It is mine.</p>
+            <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+         
+
+        <hr>
     </div>
+   
+          
+    
 </section>
 
     <div ng-if="postItems.length === 0">
