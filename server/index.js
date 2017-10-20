@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(`${__dirname}/../public`));
 
-massive(connectionString).then(db => app.set('db', db));
+massive(connectionString1).then(db => app.set('db', db));
 
 app.use(session({
     secret,
