@@ -5,10 +5,10 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <ul class="menu horizontal">
+        <ul class="menu horizontal flex-end">
             <li>{{ user.data.nickname }}</li>
-            <li><a ui-sref="collection" class="happy"> Collection</a></li>
-            <li><a ui-sref="profile" class="happy">Profile</a></li>
+            <li><a ui-sref="collection" class="happy fwhite"> Collection</a></li>
+            <li><a ui-sref="profile" class="happy fwhite">Profile</a></li>
             <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
     </div>
@@ -17,42 +17,51 @@
 
 
 <!-- SEARCH -->
- <div class="input-group">
-    <span class="input-group-label"></span>
-    <input class="input-group-field" ng-model="searchBook.name" type="comic">
-    <div class="input-group-button">
-        <input type="submit" class="button" ng-click="submit(searchBook)" value="Search">
+<form>
+    <div class="input-group">
+        <span class="input-group-label"></span>
+        <input class="input-group-field" ng-model="searchBook.name" type="comic">
+        <div class="input-group-button">
+            <input type="submit" class="button" ng-click="submit(searchBook)" value="Search">
+        </div>
     </div>
-</div>
-
-<div >
+</form>
+<div>
     <table>
         <tr dir-paginate="user in users | itemsPerPage: usersPerPage" total-items="totalUsers" current-page="pagination.current">
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
         </tr>
     </table>
-    <dir-pagination-controls on-page-change="pageChanged(searchBook.newPageNumber)"></dir-pagination-controls>
+
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"  class="center"></dir-pagination-controls>
 </div>
 
 
-
-<!-- switch for upload -->
 <div class="switch">
-    <input class="switch-input" id="mySwitch" type="checkbox" name="exampleSwitch">
-    <label class="switch-paddle" ng-click="showMe()" for="mySwitch">
+    <input class="switch-input" id="mySwitch" type="checkbox" ng-click="show = !show" name="exampleSwitch">
+    <label class="switch-paddle" for="mySwitch">
         <span class="show-for-sr">Enabled</span>
-        <span class="switch-inactive" ng-click="hideMe()" aria-hidden="true"></span>
+        <span class="switch-inactive" aria-hidden="true"></span>
     </label>
 </div>
 
+<!-- <div class="switch">
+    <input class="switch-input" type="checkbox" id="mySwitch1" ng-model="ShowPassport" ng-change="ShowHide()" />
+        <label class="switch-paddle" for="mySitch1">
+        </label>
+        <hr />
+        <div ng-show="IsVisible">
+            Passport Number:
+            <input type="text" id="txtPassportNumber" />
+        </div>
+    </div> -->
 
-<!-- input for comicboo -->
 <div ng-show="show">
-            
+
     <form name="form">
         <img style="width: 300px;" ngf-thumbnail="image">
-        <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button> 
+        <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button>
     </form>
     <form>
         <div class="grid-container">
@@ -68,50 +77,64 @@
                     </label>
                 </div>
                 <div class="large-12 cell">
-                            <label>Description
+                    <label>Description
                               <textarea ng-model="uploadComic.description" type="text"></textarea>
                             </label>
-                          </div>
-                  </div>
                 </div>
-                <button class="button" ng-click="upload(uploadComic)">Submit</button>
-              </form>
-
-    </div>
+            </div>
+        </div>
+        <button class="button" ng-click="upload(uploadComic)">Submit</button>
+    </form>
+    <!--
+                This is where
+                    your image upload buttons
+                        will go 
+            -->
+</div>
 
 <table class="striped hover stack table-scroll">
-        <thead>
-            <th></th>
-            <th>Cover</th>
-            <th>Name</th>
-            <th>Description</th>
-        </thead>
-        <tr dir-paginate="book in comicbook| itemsPerPage: booksPerPage" total-items="totalbooks" current-page="pagination.current" >
-            <td>
-                <div>
-                    <!-- DESKTOP -->
-                    <i ng-click="store(book)" class="fa fa-plus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
-                    <i ng-click="undo(book)" class="fa fa-minus-circle fa-3x show-for-large-only"  aria-hidden="true"></i>
-                </div> 
-                <div>
-                    <!-- MOBLIE -->
-                    <button class="button expanded hide-for-large-only">
+    <thead>
+        <th></th>
+        <th>Cover</th>
+        <th>Name</th>
+        <th>Description</th>
+    </thead>
+    <tr dir-paginate="book in comicbook| itemsPerPage: 10">
+        <td>
+            <div>
+                <!-- DESKTOP -->
+                <i ng-click="store(book)" class="fa fa-plus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
+                <i ng-click="undo(book)" class="fa fa-minus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
+            </div>
+            <div>
+                <!-- MOBLIE -->
+                <button class="button expanded hide-for-large-only">
                         <i ng-click="store(book)" class="fa fa-plus-circle"></i>
                     </button>
-                    <button class="button expanded hide-for-large-only">
+                <button class="button expanded hide-for-large-only">
                         <i ng-click="undo(book)" class="fa fa-minus-circle"></i>
                     </button>
-                </div>
-            </td>
-            <td><img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}"></td>
-            <td>{{ book.volume.name }}</td>
-            <td ng-bind-html="book.description"></td>
-        </tr>
+            </div>
+        </td>
+        <td><img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}"></td>
+        <td>{{ book.volume.name }}</td>
+        <td ng-bind-html="book.description"></td>
+    </tr>
 </table>
 
+<!-- <div dir-paginate="book in comicbook| itemsPerPage: 10">
+    <div>
+        Issue #{{book.issue_number}}
+    </div>
 
+    <a ng-click="store(book)">
+        <img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}">
+    </a>
 
-<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+    
+</div> -->
+
+<dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="center"></dir-pagination-controls>
 
 <div>{{ test }}</div>
 
@@ -119,8 +142,8 @@
 <div class="loading happy">Loading</div>
 <script>
     i = 0;
-    setInterval(function() {
+    setInterval(function () {
         i = ++i % 4;
-        $(".loading").text("Loading " + Array(i+1).join("."));
-        }, 800)
+        $(".loading").text("Loading " + Array(i + 1).join("."));
+    }, 800)
 </script>

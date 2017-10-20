@@ -5,10 +5,10 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <ul class="menu horizontal">
-            <li>{{ user.data.nickname }}</li>
-            <li><a ui-sref="search" class="happy">Search</a></li>
-            <li><a ui-sref="profile" class="happy">Profile</a></li>
+        <ul class="menu horizontal flex-end">
+
+            <li><a ui-sref="search" class="happy fwhite">Search</a></li>
+            <li><a ui-sref="profile" class="happy fwhite">Profile</a></li>
             <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
     </div>
@@ -16,70 +16,80 @@
 
 
 
-
-<h1 class="text-center happy">Collection</h1>
-
-
-
-<!-- SHOW LARGE -->
-<div  dir-paginate="book in comicbook | itemsPerPage: 7 as postItems"  class="wrapper show-for-large-only">
-    <div class="three">
-        <img ng-src="{{ book.img_med }}" alt="">
-    </div>
-    <div class="four">
-        <div class="comic-start-block scroll">
-            <p ng-bind-html="book.description" class="text-center happy top"></p>
-        </div>
-        <div class="comic-block"></div>
-    </div>
-</div>
+<section ng-init="index=0; classes=['white', 'red']" ng-class="classes[index % classes.length]">
+    <h1 class="text-center happy">Collection</h1>
 
 
-<!-- SHOW SMALL -->
-<section  class="button expanded hide-for-large-only">
-    <div dir-paginate="book in comicbook | itemsPerPage: 7 as postItems" >
-       <div class="happy">{{ book.name }}  #{{book.issue_number}}</div>
-       <div>
-            <a ng-click="removeBook(book)">
-                <img ng-src="{{ book.img_med }}" alt="">
-            </a>
-        </div>
-        <section>
-            <div>
-                <p><button class="secondary button expanded" data-open="exampleModal1">Click me for a modal</button></p>
+    <div class="wrap">
+        <!-- SHOW LARGE -->
+        <div dir-paginate="book in comicbook | itemsPerPage: 7 as postItems" class="wrapper show-for-large">
+            <div class="cover">
+                <img width="400px" ng-src="{{ book.img_med }}" alt="">
             </div>
-        <div class="descrp">
-            
-            <p ng-bind-html="book.description"></p>
-        </div> 
-        </section>
- <div class="reveal" id="exampleModal1" data-reveal>
-            <h1>Awesome. I Have It.</h1>
-            <p class="lead">Your couch. It is mine.</p>
-            <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-         
+            <div class="descrption">
+                <div class="comic-start-block scroll">
+                    <p ng-bind-html="book.description" class="text-center happy top"></p>
+                </div>
+                <div class="comic-block"></div>
+            </div>
+            <div> <button ng-click="removeBook(book)" class="button removebutton"></button></div>
+            <div class="name">
+                <div class="text-center stat bang">{{book.name}}</div>
+            </div>
+            <div class="issueNumber">
+                <div class="text-center x-large bang">
+                    #{{ book.issue_number }}
+                </div>
+            </div>
+        </div>
 
-        <hr>
     </div>
-   
-          
-    
-</section>
+
+    <!-- SHOW SMALL -->
+    <section class="button expanded hide-for-large">
+        <div dir-paginate="book in comicbook | itemsPerPage: 7 as postItems">
+            <div class="happy">{{ book.name }} #{{book.issue_number}}</div>
+
+            <div><img ng-src="{{ book.img_med }}" alt=""></div>
+            <section>
+                <div>
+                    <p><button class="secondary button expanded" ng-click="show = !show">Click me for description</button></p>
+                </div>
+                <div class="descrp" ng-show="show">
+
+                    <p ng-bind-html="book.description"></p>
+                    <div><button ng-click="removeBook(book)" class="alert button expanded">Delete</button></div>
+                </div>
+            </section>
+            <div class="reveal" id="exampleModal1" data-reveal ng-controller="searchCtrl">
+                <p ng-bind-html="book.description"></p>
+                <p>{{ book.description }}</p>
+                <h1>Awesome. I Have It.</h1>
+                <p class="lead">Your couch. It is mine.</p>
+                <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <hr>
+        </div>
+
+
+
+    </section>
 
     <div ng-if="postItems.length === 0">
         <span>No Items Found</span>
-       
+
         <button class="button" ui-sref="search">Add stuff now</button>
     </div>
 
-<dir-pagination-controls></dir-pagination-controls>
-{{test}}
+    <dir-pagination-controls></dir-pagination-controls>
+    {{test}}
 
-
+</section>
 
 
 
@@ -87,4 +97,6 @@
 <!-- <script src="./foundation/js/vendor/jquery.js"></script>
 <script src="./foundation/js/vendor/what-input.js"></script>
 <script src="./foundation/js/vendor/foundation.js"></script> -->
-<script>$(document).foundation();</script>
+<script>
+    $(document).foundation();
+</script>
