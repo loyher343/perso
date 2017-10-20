@@ -16,6 +16,7 @@ const kyu ="```人◕‿‿◕人```"
 
                                 //change this
 const connectionString = `postgres://${dbUser}@localhost/${database}`;
+const connectionString1 = `postgres://ppwtfysdmufnch:b0aafd17fe8ba75c48af26999c73b5a943bb4c2eb3b47e1ff512f1ca7912d74e@ec2-54-83-58-17.compute-1.amazonaws.com:5432/ddg1823olc2g1a?ssl=true`;
 
 const app = express();
 

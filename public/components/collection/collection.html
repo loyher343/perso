@@ -16,9 +16,12 @@
 
 
 
-<section ng-init="index=0; classes=['white', 'red']" ng-class="classes[index % classes.length]">
-    <h1 class="text-center happy">Collection</h1>
-
+<section class="comicC">
+    <div class="center">
+    <div class="collectionBlock">
+        <h1 class="text-center happy collectionPOS">Collection</h1>
+    </div>
+    </div>
 
     <div class="wrap">
         <!-- SHOW LARGE -->
@@ -77,15 +80,40 @@
         </div>
 
 
-
+    <!-- DESKTOP -->
     </section>
+    <section class="center show-for-large">
+            <!-- <div class="bubble"><img src="./external/Speech-Bubble.png" alt=""></div> -->
+            <div ng-if="postItems.length === 0">
+        <div class="nothing" style="background-color:aliceblue">
+                
+                <div>
+                    <span class="happy stat">No Items Found</span>
+                </div>
+                <div class="addB">
+               
+                    <button class=" happy" style="margin: 15%" ui-sref="search">Add stuff now</button>
+                </div>
+            </div>
+        </div>
+    </section> 
 
-    <div ng-if="postItems.length === 0">
-        <span>No Items Found</span>
-
-        <button class="button" ui-sref="search">Add stuff now</button>
-    </div>
-
+    <!-- MOBILE -->
+    <section class="center hide-for-large">
+            <!-- <div class="bubble"><img src="./external/Speech-Bubble.png" alt=""></div> -->
+        <div class="nothing" style="background-color:aliceblue">
+            <div class="center" ng-if="postItems.length === 0">
+                
+                <div>
+                    <span class="happy">No Items Found</span>
+                </div>
+                <div class="addMobile">
+               
+                    <button class="button happy" ui-sref="search">Add stuff now</button>
+                </div>
+            </div>
+        </div>
+    </section> 
     <dir-pagination-controls></dir-pagination-controls>
     {{test}}
 

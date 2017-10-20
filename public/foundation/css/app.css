@@ -8,8 +8,20 @@
 
 
 }
+.bubble{
+   
+}
 .searcH{
     height:38px;
+}
+.addB{
+    height: 89px;
+    margin-left: 20%;
+    border: 4px solid;
+    border-radius: 50%;
+    margin-top: 20%;
+    width: 171px;
+    background-color: white;
 }
 .akew{
     -webkit-transform: rotate(-10deg) skew(-10deg, 0);
@@ -26,6 +38,7 @@
     height: 100vh;
     background-image: radial-gradient(ellipse farthest-corner, transparent 0%, transparent 35%, #fff 30%, #fff 40%, transparent 90%), radial-gradient(ellipse farthest-corner at 0px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 8px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 0px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 40%), radial-gradient(ellipse farthest-corner at 8px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%),  linear-gradient(40deg, #bd2d10 0, #f4502f 30%, #ff6e51 50%, #f4502f 70%, #bd2d10 100%);
     background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 100% 100%;
+    animation: bscale 10s infinite linear
 }
 .top-bar, .top-bar ul {
     background-color: #1F1F1F;
@@ -110,7 +123,16 @@ hr {
     background: white;
     border-left: 1px solid rgba(0, 0, 0, 0.05);
     -webkit-backface-visibility: hidden;
+}
+.collectionPOS{
+    
+   
 }  
+.collectionBlock{
+    width: 50%;
+    background-color: aliceblue;
+    border: 4px solid;
+}
 .comic-block {
     margin-top: 12px;
     margin-left: 37px;
@@ -147,10 +169,23 @@ hr {
     font-family: Georgia; 
     /*color: #f0f0f0;*/
 }
-
+.nothing{
+    border: 4px solid;
+    height: 30VH;
+    margin-top: 13%;
+    margin-bottom: 13%;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+}
 .red{
     background-color: red;
 }
 .fwhite{
     color: white;
+}
+.comicC{
+    background-image: radial-gradient(ellipse farthest-corner, transparent 0%, transparent 35%, #fff 30%, #fff 40%, transparent 90%), radial-gradient(ellipse farthest-corner at 0px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 8px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%), radial-gradient(ellipse farthest-corner at 0px 8px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 40%), radial-gradient(ellipse farthest-corner at 8px 0px, transparent 0%, transparent 20%, #fff 15%, #fff 20%, transparent 50%),  linear-gradient(40deg, #5D00FF 0, #2FC0F4 30%, #51B5FF 50%, #2F98F4 70%, #5D00FF 100%);
+    background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 100% 100%;
+    height:100vh;
 }
