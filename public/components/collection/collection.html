@@ -1,14 +1,14 @@
 <nav class="top-bar" data-topbar>
     <div class="top-bar-left">
         <ul class="dropdown menu" data-drop-menu>
-            <li class="bang">Title goes here</li>
+            <li class="bang" style="font-size: xx-large;">Colectz</li>
         </ul>
     </div>
     <div class="top-bar-right">
         <ul class="menu horizontal flex-end">
 
             <li><a ui-sref="search" class="happy fwhite">Search</a></li>
-            <li><a ui-sref="profile" class="happy fwhite">Profile</a></li>
+            <li><p class="happy fwhite">{{ data }}</p></li>
             <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
     </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="comic-block"></div>
             </div>
-            <div> <button ng-click="removeBook(book)" class="button removebutton"></button></div>
+            <div> <button ng-click="removeBook(book)" class="alert button removebutton removebuttonCol">Remove</button></div>
             <div class="name">
                 <div class="text-center stat bang">{{book.name}}</div>
             </div>
@@ -88,11 +88,11 @@
         <div class="nothing" style="background-color:aliceblue">
                 
                 <div>
-                    <span class="happy stat">No Items Found</span>
+                    <span class="happy stat ">No Comics Here</span>
                 </div>
                 <div class="addB">
                
-                    <button class=" happy" style="margin: 15%" ui-sref="search">Add stuff now</button>
+                    <button class=" happy asn"  ui-sref="search">Add stuff now</button>
                 </div>
             </div>
         </div>
@@ -101,21 +101,21 @@
     <!-- MOBILE -->
     <section class="center hide-for-large">
             <!-- <div class="bubble"><img src="./external/Speech-Bubble.png" alt=""></div> -->
-        <div class="nothing" style="background-color:aliceblue">
             <div class="center" ng-if="postItems.length === 0">
+        <div class="nothingSml" style="background-color:aliceblue">
                 
                 <div>
-                    <span class="happy">No Items Found</span>
+                    <span class="happy">No Comics Here</span>
                 </div>
                 <div class="addMobile">
                
-                    <button class="button happy" ui-sref="search">Add stuff now</button>
+                    <button class="button tiny happy roundafy" ui-sref="search">Add stuff now</button>
                 </div>
             </div>
         </div>
     </section> 
     <dir-pagination-controls></dir-pagination-controls>
-    {{test}}
+    <!-- {{test}} -->
 
 </section>
 

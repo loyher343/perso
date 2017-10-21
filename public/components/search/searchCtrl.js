@@ -48,8 +48,10 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv, 
     $scope.store = (book) => { 
         console.log(book)
         searchSrv.store(book)
+        return  $scope.searchName = book.name
 
     }
+   
     
     $scope.upload = (book) => {
 
@@ -76,3 +78,8 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv, 
     
 })
     
+
+$scope.hideMe = function(){
+    console.log('hide the button');
+    $scope.hide();
+  }

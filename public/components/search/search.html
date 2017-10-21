@@ -1,18 +1,20 @@
 <nav class="top-bar" data-topbar>
     <div class="top-bar-left">
         <ul class="dropdown menu" data-drop-menu>
-            <li class="bang">Title goes here</li>
+            <li class="bang" style="font-size: xx-large;">colectz</li>
         </ul>
     </div>
     <div class="top-bar-right">
         <ul class="menu horizontal flex-end">
             <li>{{ user.data.nickname }}</li>
             <li><a ui-sref="collection" class="happy fwhite"> Collection</a></li>
-            <li><a ui-sref="profile" class="happy fwhite">Profile</a></li>
+            <!-- <li><a ui-sref="profile" class="happy fwhite">Profile</a></li> -->
             <li><button class="warning button" ng-click="logout()">Logout</button></li>
         </ul>
     </div>
 </nav>
+
+<div class="searchBack">
 <h1 class="happy text-center">Search</h1>
 
 
@@ -22,10 +24,11 @@
         <span class="input-group-label"></span>
         <input class="input-group-field" ng-model="searchBook.name" type="comic">
         <div class="input-group-button">
-            <input type="submit" class="button" ng-click="submit(searchBook)" value="Search">
+            <input type="submit" class="button" ng-click="submit(searchBook) "ng-model="name" value="Search">
         </div>
     </div>
 </form>
+
 <div>
     <table>
         <tr dir-paginate="user in users | itemsPerPage: usersPerPage" total-items="totalUsers" current-page="pagination.current">
@@ -36,16 +39,20 @@
 
     <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"  class="center"></dir-pagination-controls>
 </div>
-
-
-<div class="switch">
+<div class="center">
+<div class="switchBlock">
+    <div>
+<!-- <div class="switch">
     <input class="switch-input" id="mySwitch" type="checkbox" ng-click="show = !show" name="exampleSwitch">
     <label class="switch-paddle" for="mySwitch">
         <span class="show-for-sr">Enabled</span>
         <span class="switch-inactive" aria-hidden="true"></span>
     </label>
+</div> -->
+<div>
+<h5 class="happy">Add Your Own</h5>
 </div>
-
+</div>
 <!-- <div class="switch">
     <input class="switch-input" type="checkbox" id="mySwitch1" ng-model="ShowPassport" ng-change="ShowHide()" />
         <label class="switch-paddle" for="mySitch1">
@@ -57,11 +64,11 @@
         </div>
     </div> -->
 
-<div ng-show="show">
+<div>
 
     <form name="form">
         <img style="width: 300px;" ngf-thumbnail="image">
-        <button class="button" name="image" ngf-select ng-model="uploadComic.image">Upload image</button>
+        <button class="button expanded" name="image" ngf-select ng-model="uploadComic.image">Upload image</button>
     </form>
     <form>
         <div class="grid-container">
@@ -83,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <button class="button" ng-click="upload(uploadComic)">Submit</button>
+        <button class="button expanded" ng-click="upload(uploadComic)">Submit</button>
     </form>
     <!--
                 This is where
@@ -91,7 +98,8 @@
                         will go 
             -->
 </div>
-
+</div>
+</div>
 <table class="striped hover stack table-scroll">
     <thead>
         <th>Add to collection</th>
@@ -103,17 +111,17 @@
         <td>
             <div>
                 <!-- DESKTOP -->
-                <i ng-click="store(book)" class="fa fa-plus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
-                <i ng-click="undo(book)" class="fa fa-minus-circle fa-3x show-for-large-only" aria-hidden="true"></i>
+                <i ng-click="store(book); showDiv=true; hideMe()"  class="fa fa-plus-circle fa-3x show-for-large" aria-hidden="true"></i>
+                <i ng-show="showDiv" class="fa fa-check-circle-o fa-3x show-for-large checkgreen" aria-hidden="true"></i>
             </div>
             <div>
                 <!-- MOBLIE -->
-                <button class="button expanded hide-for-large-only">
-                        <i ng-click="store(book)" class="fa fa-plus-circle"></i>
+                <button class="button expanded hide-for-large">
+                        <i ng-click="store(book); showDiv=true; hideMe() " class="fa fa-plus-circle"></i>
                     </button>
-                <button class="button expanded hide-for-large-only">
-                        <i ng-click="undo(book)" class="fa fa-minus-circle"></i>
-                    </button>
+                <div class="button expanded hide-for-large fwhite">
+                        <i ng-show="showDiv" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                </div>
             </div>
         </td>
         <td><img ng-src="{{ book.image.medium_url }}" alt="{{book.name}}"></td>
@@ -136,7 +144,7 @@
 
 <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="center"></dir-pagination-controls>
 
-<div>{{ test }}</div>
+<!-- <div>{{ test }}</div>
 
 
 <div class="loading happy">Loading</div>
@@ -147,3 +155,5 @@
         $(".loading").text("Loading " + Array(i + 1).join("."));
     }, 800)
 </script>
+</div> -->
+
