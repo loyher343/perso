@@ -229,7 +229,7 @@ hr {
     background: radial-gradient(#000 10%,#fff 10%);
     background-size: 15px 15px;
     animation: bscale 10s infinite linear;
-    height: -webkit-fill-available;
+    height: auto;
 
 }
 .switchBlock{
