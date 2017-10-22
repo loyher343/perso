@@ -10,14 +10,22 @@ angular.module('comicApp').controller('searchCtrl', function($scope, searchSrv, 
     }
     $scope.submit = function(searchBook) {
         console.log(searchBook)
+        $scope.searchName = searchBook.name;
+        $scope.searching = true;
+        $scope.box = true
+        console.log(':p',$scope.searchName)
         searchSrv.submit(searchBook)
             .then(function(data){
+                console.log(data.data.number_of_total_results)
+                $scope.searching = false
+                $scope.results = data.data.number_of_total_results
+                $scope.result = true
                 const issueArr = []
                 // console.log('Y0',data)
                 // console.log(data.data)
                 const book = data.data.results
                 
-                for(var i = 0; i< book.length; i++){
+                for(let i = 0; i< book.length; i++){
                     //console.log(book[i].resource_type)
                     const issue=book[i];
                     if(issue.resource_type==='issue'){

@@ -11,6 +11,10 @@
 .bubble{
    
 }
+.box{
+    border: 4px solid;
+    background: white;
+}
 .searcH{
     height:38px;
 }

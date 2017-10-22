@@ -36,7 +36,14 @@
                 <td>{{ user.email }}</td>
             </tr>
         </table>
+        <div class="box" ng-if="box" ng-model="box">
+        <section  ng-model="searching" class="center happy">
+<h3 ng-if="searching">Searching {{searchName}}</h3>
 
+</section>
+<section ng-model="result" class="center happy">
+    <h4 ng-if="result">{{results}} results</h4>
+</section></div>
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="center"></dir-pagination-controls>
     </div>
     <div class="center">
@@ -100,6 +107,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
     <table class="striped hover stack table-scroll">
         <thead>
             <th>Add to collection</th>
@@ -129,6 +141,9 @@
             <td ng-bind-html="book.description"></td>
         </tr>
     </table>
+
+
+    
 
     <!-- <div dir-paginate="book in comicbook| itemsPerPage: 10">
     <div>
