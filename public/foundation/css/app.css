@@ -27,6 +27,10 @@
     width: 263px;
     background-color: white
 }
+.acenter{
+    display: flex;
+    align-items: center;
+}
 .akew{
     -webkit-transform: rotate(-10deg) skew(-10deg, 0);
     -moz-transform: rotate(-10deg) skew(-10deg, 0);
@@ -52,6 +56,11 @@
 .book{
     display: flex;
     justify-content: center;
+}
+.foot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .flex-end{
     display: flex;
@@ -233,7 +242,7 @@ hr {
     background: radial-gradient(#000 10%,#fff 10%);
     background-size: 15px 15px;
     animation: bscale 10s infinite linear;
-    height: auto;
+    height: -webkit-fill-available;
 
 }
 .switchBlock{
