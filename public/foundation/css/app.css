@@ -161,6 +161,12 @@ hr {
     z-index:2;
     border-right: 3px solid;
 }
+.kyu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+}
 .scroll{
     overflow: scroll;
     
