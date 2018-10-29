@@ -1,6 +1,5 @@
 angular.module('comicApp').service('searchSrv', function($http){
 
-    const key = 'api_key=dbe5258aa34625d379e5b78516f7364665038eb9';
     const api = 'https://api-comic-vine.herokuapp.com/search/?api_key=dbe5258aa34625d379e5b78516f7364665038eb9&format=json&limit=50&query='
     
   
