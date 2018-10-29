@@ -34,25 +34,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-// using passport to access auth0
-// { domain: config.auth0.domain ... etc}
-
-// passport.use('local', new LocalStrategy(
-//     (username , password, done) => {
-//         db.user.findOne({ username: username }, (err, user) => {
-//             if (err) { return done(err); }
-//             if (!user) { return done(null,false); }
-//             if (user.password != password) { return done(null, false); }
-//             return done(null, user);
-//         })
-//     }
-// ))
-
-
-
-// using passport to access auth0
-// { domain: config.auth0.domain ... etc}
 passport.use(new Auth0Strategy({
     domain: domain,
     clientID: clientID,
@@ -80,10 +61,6 @@ passport.use(new Auth0Strategy({
    }
  ));
 
-//  passport.logout({
-//      returnTo: '/',
-//      clientID
-//  })
 
  // put user on session
  passport.serializeUser((user, done) => {
@@ -120,8 +97,6 @@ app.post('/api/uploadComic', (req, res, next) => {
     ])
 
 });
-
-
 
 app.post('/api/comicbooks', (req, res, next) => {
     console.log(req.body)
@@ -201,10 +176,7 @@ app.put('/api/users', (req,res,next) => {
     const db = req.app.get('db');
     console.log(req.session.passport);
     console.log(req.body)
-    // db.updateUser([req.session.passport.user.authid, req.body.first, req.body.last, req.body.email]).then((user)=>{
-    //   console.log(req.session);
-    //   res.json(user);
-    // }).catch(error => console.log('ERROR:', error))
+
   })
 // initial endpoint to fire off login
 
