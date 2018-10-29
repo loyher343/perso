@@ -5,7 +5,6 @@ angular.module('comicApp').service('loginSrv',function($http){
             return res
         });
     }
-    
 
     this.test1 = () => {
        
@@ -14,8 +13,5 @@ angular.module('comicApp').service('loginSrv',function($http){
             return res
         })
     }
-    // this.createUser = (user) => {
-    //     console.log(user)
-    //     return $http.post('/api/user/create', user);
-    // } 
+  
 })
