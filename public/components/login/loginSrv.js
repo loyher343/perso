@@ -5,7 +5,6 @@ angular.module('comicApp').service('loginSrv',function($http){
             return res
         });
     }
-    
 
     this.test1 = () => {
        
